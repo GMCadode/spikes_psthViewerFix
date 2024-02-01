@@ -43,8 +43,8 @@ else
     p = [];
 end
 
-params.groupingName = getOr(p, 'groupingName', 'Grouping variable value'); 
-params.groupingLegend = getOr(p, 'groupingLegend', unique(trGroups)); 
+% params.groupingName = getOr(p, 'groupingName', 'Grouping variable value'); 
+% params.groupingLegend = getOr(p, 'groupingLegend', unique(trGroups)); 
 
 params.smoothSize = 15; % in msec, stdev of gaussian smoothing filter
 params.clusterIndex = 1;
