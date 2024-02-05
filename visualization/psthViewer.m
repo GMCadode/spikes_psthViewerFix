@@ -46,7 +46,7 @@ end
 % params.groupingName = getOr(p, 'groupingName', 'Grouping variable value'); 
 % params.groupingLegend = getOr(p, 'groupingLegend', unique(trGroups)); 
 
-params.smoothSize = 15; % in msec, stdev of gaussian smoothing filter
+params.smoothSize = 0.5; % in msec, stdev of gaussian smoothing filter
 params.clusterIndex = 1;
 params.rasterScale = floor(numel(eventTimes)/100); % height of ticks
 params.window = window;
@@ -54,7 +54,7 @@ params.showAllTraces = false;
 params.showErrorShading = false;
 params.startRange = window(1);
 params.stopRange = window(2);
-params.binSize = 0.001;
+params.binSize = 0.0001;
 params.filterType = 1; 
 params.smWin = genSmWin(params);
 
@@ -235,9 +235,9 @@ hold off;
 hh = plot(trGroupLabels, tuningCurve(:,1), 'k'); hold on;
 arrayfun(@(x)plot(trGroupLabels(x)*[1 1], tuningCurve(x,1)+tuningCurve(x,2)*[-1 1], 'Color',  colors(x,:), 'LineWidth', 2.0), 1:nGroups);
 arrayfun(@(x)plot(trGroupLabels(x), tuningCurve(x,1), 'o', 'Color',  colors(x,:), 'LineWidth', 2.0), 1:nGroups);
-xlabel(p.groupingName);
+% xlabel(p.groupingName);
 ylabel('Average firing rate (sp/s)');
-set(myData.plotAxes(3), 'XTick', trGroupLabels, 'XTickLabel', p.groupingLegend); 
+% set(myData.plotAxes(3), 'XTick', trGroupLabels, 'XTickLabel', p.groupingLegend); 
 makepretty;
 set(hh, 'LineWidth', 1.0); 
 box off;
